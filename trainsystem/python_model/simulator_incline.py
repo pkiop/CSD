@@ -1,10 +1,20 @@
 import pygame
+import csv
+from decimal import *
 
 WHITE = (255, 255, 255)
 BLACK = (0,0,0)
 pad_width = 1024
 pad_height = 512
 background_width = 1024
+
+f = open('csvfile/inclinedata.csv', 'r', encoding='utf-8')
+rdr = csv.reader(f)
+getcontext().prec = 1
+
+dic = {}
+for line in rdr:
+    dic[line[0]] = line[1]
 
 def view_degree(D):
     global gamepad
@@ -35,13 +45,18 @@ def back(background, x,y):
 def runGame():
     global gamepad, train, clock, background, background2
 
+
     now_val = 0
     cnt = 0
-    x = 200
-    y = 300
+    train_x = 0
+    train_y = 330
     background_x = 0
     background2_x = background_width
     ended = False
+
+
+
+
     while not ended :
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -65,15 +80,26 @@ def runGame():
 
         #view
         mstime=pygame.time.get_ticks()
-
-        now_val = mstime/1000
+        start_time = 490
+        now_val = start_time + mstime/1000
+        now_val = (int(now_val * 10))
+        if now_val%10 == 0:
+            now_val = int(now_val/10)
+        else:
+            now_val = now_val/10
+        now_val = str(now_val)
         view_time(now_val)
-        view_velocity(30)
-        view_degree(30)
+        view_velocity(dic[now_val])
+        view_degree(20)
 
         #rotate
-        angle = 0
-        trainlocation(-50, y)
+        if cnt%5 == 0:
+            train_x += 3
+            train_y += -1
+            if cnt%30 == 0:
+                train_y += -1
+        trainlocation(train_x, train_y)
+        cnt+=1
 
 
 
@@ -89,8 +115,8 @@ def initGame():
 
     pygame.init()
     gamepad = pygame.display.set_mode((pad_width, pad_height))
-    pygame.display.set_caption('PyFlying')
-    train = pygame.image.load('image/train2.png')
+    pygame.display.set_caption('H-Train')
+    train = pygame.image.load('image/incline.png')
     train = pygame.transform.scale(train, (121*2,43*2))
     background = pygame.image.load('image/incline_back.png')
     background = pygame.transform.scale(background, (1024,512))

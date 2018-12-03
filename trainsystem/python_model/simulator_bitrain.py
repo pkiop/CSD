@@ -1,4 +1,6 @@
 import pygame
+import csv
+from decimal import *
 
 WHITE = (255, 255, 255)
 BLACK = (0,0,0)
@@ -6,10 +8,24 @@ pad_width = 1024
 pad_height = 512
 background_width = 1024
 
-def view_degree(D):
+f = open('csvfile/bitrain.csv', 'r', encoding='utf-8')
+rdr = csv.reader(f)
+getcontext().prec = 1
+
+dic = {}
+for line in rdr:
+    dic[line[0]] = [line[1], line[2]]
+
+WHITE = (255, 255, 255)
+BLACK = (0,0,0)
+pad_width = 1024
+pad_height = 512
+background_width = 1024
+
+def view_disturbance(D):
     global gamepad
     font = pygame.font.SysFont(None, 40)
-    test = font.render('Degree : ' + str(D), True, BLACK)
+    test = font.render('Air resistance : ' + str(D), True, BLACK)
     gamepad.blit(test, (5 , 60))
 
 def view_time(T):
@@ -38,7 +54,7 @@ def runGame():
     now_val = 0
     backcount = 0
     cnt = 0
-    x = 200
+    x = 0
     y = 300
     background_x = 0
     background2_x = background_width
@@ -54,7 +70,7 @@ def runGame():
                 elif event.key == pygame.K_DOWN:
                     x = 400
 
-        x_diff = 10
+        x_diff = 7
         background_x -= x_diff
         background2_x -= x_diff
 
@@ -67,31 +83,31 @@ def runGame():
 
         if background2_x <= -background_width + x_diff:
             background2_x = background_width
-        print(backcount)
-        if backcount <= 170:
+        if backcount <= 90:
             backcount += 1
             back(background, background_x, 0)
             back(background, background2_x, 0)
-        elif backcount <= 300:
+        elif backcount <= 330:
             backcount += 1
             back(background_dis, background_x, 0)
-            back(background, background2_x, 0)
+            back(background_dis2, background2_x, 0)
         else :
             back(background, background_x, 0)
             back(background, background2_x, 0)
 
-        #view
-        mstime=pygame.time.get_ticks()
-
-        now_val = mstime/1000
+        # view
+        mstime = pygame.time.get_ticks()
+        start_time = 492
+        now_val = start_time + mstime / 1000
+        now_val = (int(now_val * 10))
+        if now_val % 10 == 0:
+            now_val = int(now_val / 10)
+        else:
+            now_val = now_val / 10
+        now_val = str(now_val)
         view_time(now_val)
-        view_velocity(30)
-        view_degree(30)
-
-        #rotate
-        angle = 0
-        train = pygame.transform.rotate(train, angle)
-        #train = image.get_rect()
+        view_velocity(dic[now_val][1])
+        view_disturbance(dic[now_val][0])
         trainlocation(x, y)
 
 
@@ -108,7 +124,7 @@ def initGame():
 
     pygame.init()
     gamepad = pygame.display.set_mode((pad_width, pad_height))
-    pygame.display.set_caption('PyFlying')
+    pygame.display.set_caption('H-train bitrain simulation')
     train = pygame.image.load('image/train.png')
     train = pygame.transform.scale(train, (121*2,43*2))
     background = pygame.image.load('image/background.jpg')
