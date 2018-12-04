@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9f0bbd6-084e-455f-b588-54dade2ec5ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/FINAL/REAL.slx" beforeDir="false" afterPath="$PROJECT_DIR$/FINAL/REAL.slx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FINAL/REAL.slx.autosave" beforeDir="false" afterPath="$PROJECT_DIR$/FINAL/REAL.slx.autosave" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_model/image/erase_train_in.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_model/simulator_bitrain.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_model/simulator_bitrain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_model/simulator_disturbance.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_model/simulator_disturbance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_model/simulator_incline.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_model/simulator_incline.py" afterDir="false" />
-    </list>
+    <list default="true" id="d9f0bbd6-084e-455f-b588-54dade2ec5ca" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python_model/simulator_bitrain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1764">
-              <caret line="98" column="40" lean-forward="true" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
+            <state relative-caret-position="-36">
+              <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -210,7 +203,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2558" y="234" width="1035" height="1158" extended-state="0" />
+    <frame x="-2558" y="234" width="1035" height="1158" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23547094" />
@@ -289,8 +282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python_model/simulator_bitrain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1764">
-          <caret line="98" column="40" lean-forward="true" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
+        <state relative-caret-position="-36">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
